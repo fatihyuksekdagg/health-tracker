@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Giriş Yap{% endblock %}
+
+{% block content %}
+<h2 class="text-center mb-4">🔑 Giriş Yap</h2>
+
+<form action="/login" method="post" class="card p-4 shadow-sm">
+    <div class="mb-3">
+        <label>Kullanıcı Adı:</label>
+        <input type="text" name="username" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Şifre:</label>
+        <input type="password" name="password" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-success w-100">Giriş Yap</button>
+</form>
+
+<div class="text-center mt-3">
+    <a href="/signup">📝 Hesabın yok mu? Kayıt Ol</a>
+</div>
+{% endblock %}

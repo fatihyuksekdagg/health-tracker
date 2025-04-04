@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Hedeflerini Belirle{% endblock %}
+
+{% block content %}
+<h2 class="text-center mb-4">🎯 Günlük Hedeflerini Belirle</h2>
+
+<form action="/goals" method="post" class="card p-4 shadow-sm">
+    <div class="mb-3">
+        <label>Adım Hedefi:</label>
+        <input type="number" name="step_goal" class="form-control" value="{{ goals.step_goal }}" required>
+    </div>
+    <div class="mb-3">
+        <label>Su Hedefi (litre):</label>
+        <input type="number" step="0.1" name="water_goal" class="form-control" value="{{ goals.water_goal }}" required>
+    </div>
+    <div class="mb-3">
+        <label>Uyku Hedefi (saat):</label>
+        <input type="number" step="0.1" name="sleep_goal" class="form-control" value="{{ goals.sleep_goal }}" required>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Kaydet</button>
+</form>
+<div class="text-center mt-3">
+    <a href="/" class="btn btn-secondary">🔙 Ana Sayfa</a>
+</div>
+{% endblock %}

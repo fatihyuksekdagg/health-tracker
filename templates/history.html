@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Geçmiş Veriler{% endblock %}
+
+{% block content %}
+<h2 class="text-center mb-4">📋 Geçmiş Kayıtlar</h2>
+
+{% if records %}
+<div class="table-responsive shadow-sm">
+    <table class="table table-bordered table-hover align-middle text-center">
+        <thead class="table-primary">
+            <tr>
+                <th>Tarih</th>
+                <th>Adım</th>
+                <th>Su (L)</th>
+                <th>Uyku (Saat)</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in records %}
+            <tr>
+                <td>{{ record[1] }}</td>
+                <td>{{ record[2] }}</td>
+                <td>{{ record[3] }}</td>
+                <td>{{ record[4] }}</td>
+                <td>
+                    <a href="/delete/{{ record[0] }}" class="btn btn-danger btn-sm"
+                       onclick="return confirm('Bu veriyi silmek istediğine emin misin?')">🗑 Sil</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<p class="text-center text-muted">Henüz hiç veri yok.</p>
+{% endif %}
+
+<div class="text-center mt-4">
+    <a href="/" class="btn btn-secondary">🔙 Ana Sayfa</a>
+</div>
+{% endblock %}

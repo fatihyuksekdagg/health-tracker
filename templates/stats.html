@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}İstatistikler{% endblock %}
+
+{% block content %}
+<h2 class="text-center mb-4">📊 Son 7 Günlük İstatistik</h2>
+
+<div class="card p-3 mb-4">
+    <h4 class="text-center">👣 Adım Sayısı</h4>
+    <img src="data:image/png;base64,{{ step_plot }}" class="img-fluid rounded">
+</div>
+
+<div class="card p-3 mb-4">
+    <h4 class="text-center">💧 Su Tüketimi (Litre)</h4>
+    <img src="data:image/png;base64,{{ water_plot }}" class="img-fluid rounded">
+</div>
+
+<div class="card p-3 mb-4">
+    <h4 class="text-center">🛏️ Uyku Süresi (Saat)</h4>
+    <img src="data:image/png;base64,{{ sleep_plot }}" class="img-fluid rounded">
+</div>
+
+<div class="text-center mt-3">
+    <a href="/" class="btn btn-secondary">🔙 Ana Sayfa</a>
+</div>
+{% endblock %}

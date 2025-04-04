@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Kayıt Ol{% endblock %}
+
+{% block content %}
+<h2 class="text-center mb-4">📝 Kayıt Ol</h2>
+
+<form action="/signup" method="post" class="card p-4 shadow-sm">
+    <div class="mb-3">
+        <label>Kullanıcı Adı:</label>
+        <input type="text" name="username" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Şifre:</label>
+        <input type="password" name="password" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Kayıt Ol</button>
+</form>
+
+<div class="text-center mt-3">
+    <a href="/login">🔑 Zaten üye misin? Giriş Yap</a>
+</div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Ana Sayfa{% endblock %}
+
+{% block content %}
+<h2 class="text-center mb-4">📅 Günlük Verilerini Gir</h2>
+
+<form action="/submit" method="post" class="card p-4 shadow-sm">
+    <div class="mb-3">
+        <label for="date" class="form-label">Tarih:</label>
+        <input type="date" name="date" id="date" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="steps" class="form-label">Adım Sayısı:</label>
+        <input type="number" name="steps" id="steps" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="water" class="form-label">Su (litre):</label>
+        <input type="number" step="0.1" name="water" id="water" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="sleep" class="form-label">Uyku (saat):</label>
+        <input type="number" step="0.1" name="sleep" id="sleep" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-success w-100">Kaydet ✅</button>
+</form>
+
+<hr class="my-4">
+
+<h4 class="text-center mb-3">📈 Bugünkü Hedef İlerlemen</h4>
+
+{% if progress %}
+<div class="card p-3 shadow-sm mb-4">
+    <label>👣 Adım: {{ progress.step_percent }}%</label>
+    <div class="progress mb-3">
+        <div class="progress-bar bg-info" role="progressbar" style="width: {{ progress.step_percent }}%"></div>
+    </div>
+
+    <label>💧 Su: {{ progress.water_percent }}%</label>
+    <div class="progress mb-3">
+        <div class="progress-bar bg-primary" role="progressbar" style="width: {{ progress.water_percent }}%"></div>
+    </div>
+
+    <label>🛏️ Uyku: {{ progress.sleep_percent }}%</label>
+    <div class="progress mb-3">
+        <div class="progress-bar bg-success" role="progressbar" style="width: {{ progress.sleep_percent }}%"></div>
+    </div>
+</div>
+{% else %}
+<p class="text-center text-muted">Bugün için verin veya hedefin bulunamadı.</p>
+{% endif %}
+
+<div class="mt-4 text-center">
+    <a href="/history" class="btn btn-outline-secondary me-2">📋 Geçmiş</a>
+    <a href="/stats" class="btn btn-outline-info">📊 İstatistik</a>
+</div>
+{% endblock %}
